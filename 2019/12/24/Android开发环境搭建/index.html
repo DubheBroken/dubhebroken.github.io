@@ -10,6 +10,15 @@
 
     <!--Description-->
     
+        <meta name="description" content="准备工作开发安卓大致需要以下硬件配置：
+4个框框以上 3GHZ 以上的 CPU（否则会卡到怀疑人生）
+8G 以上的内存
+60G 左右的固态硬盘空间（对，60G，一点都不夸张）
+以下是可选项：
+最好是 Intel 的 CPU
+最好有一架梯子
+下载Android StudioAndroid Studio">
+    
 
     <!--Author-->
     
@@ -18,7 +27,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="text"/>
+        <meta property="og:title" content="Android开发环境搭建"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +52,7 @@
 
     <!-- Title -->
     
-    <title>text - 天枢破军的个人博客</title>
+    <title>Android开发环境搭建 - 天枢破军的个人博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -149,8 +158,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2019/12/24/text/">
-                text
+            <a href="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                Android开发环境搭建
             </a>
         </h1>
         <div class="post-info">
@@ -158,6 +167,10 @@
                 <span class="date">2019-12-24</span>
             
             
+            
+                <span class="category">
+                    <a href="/categories/Android开发光速入坑/">Android开发光速入坑</a>
+                </span>
             
         </div>
     </div>
@@ -168,11 +181,81 @@
         
 
         <!-- Post Content -->
-        
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>开发安卓大致需要以下硬件配置：</p>
+<p>4个框框以上 3GHZ 以上的 CPU（否则会卡到怀疑人生）</p>
+<p>8G 以上的内存</p>
+<p><strong>60G</strong> 左右的固态硬盘空间（对，60G，一点都不夸张）</p>
+<p>以下是可选项：</p>
+<p>最好是 Intel 的 CPU</p>
+<p>最好有一架梯子</p>
+<h2 id="下载Android-Studio"><a href="#下载Android-Studio" class="headerlink" title="下载Android Studio"></a>下载Android Studio</h2><p><a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio官方页面</a></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224145451403.png" alt="image-20191224145451403"></p>
+<p>看到那个大大的 <code>Download</code> 了吗？点他会弹出一个霸王条款，打勾然后点下面的按钮就可以下载了</p>
+<p>（其实那个按钮就是 url，右键也可以下载）</p>
+<p>这里下载下来的是 exe安装包，通常推荐使用免安装版本，所以下一步我们来</p>
+<h4 id="选择适合自己的版本"><a href="#选择适合自己的版本" class="headerlink" title="选择适合自己的版本"></a>选择适合自己的版本</h4><p>点上图左下角的 <code>Download Options</code> 然后你就会看到下面这张图</p>
+<p>个人推荐使用zip包解压即用</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224145825745.png" alt="image-20191224145825745"></p>
+<h4 id="测试版本和体验版本"><a href="#测试版本和体验版本" class="headerlink" title="测试版本和体验版本"></a>测试版本和体验版本</h4><p>体验版本（Canary）有最新的功能，更新最频繁，最快的时候3天一更，图标是黄色的</p>
+<p>测试版本（Beta）是Canary迭代后的产物，比Canary更稳定，更新比Canary慢</p>
+<p>正式版本（Stable）就是上面放在首页的版本，更新最慢，但最稳定，图标是绿色的</p>
+<p>从顶部的 <code>perview</code> 可以跳转到Canary版本的下载链接，下图右边的是Canary，左边的是Beta</p>
+<p>3个版本有<strong>单独的更新推送</strong>，插件通常可以互通，项目只要没有把 <code>Gradle</code> 更到Canary的测试版去，通常是不受影响的。也就是说<strong>你可以同时使用</strong>3个版本甚至更多版本的Android Studio</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224150016368.png" alt="image-20191224150016368"></p>
+<h2 id="配置Android-Studio"><a href="#配置Android-Studio" class="headerlink" title="配置Android Studio"></a>配置Android Studio</h2><h4 id="首次启动配置"><a href="#首次启动配置" class="headerlink" title="首次启动配置"></a>首次启动配置</h4><p><strong>选择配置目录</strong><br>如果你曾经使用过其他版本的 <code>Android Studio</code> ，那么你首次启动的时候会弹出配置目录选择</p>
+<p>如果你曾经使用的版本和当前版本的大版本号相同（比如3.5.1和3.5.2），选第一项就好了。</p>
+<p>（其实大版本号变了也可以使用第一项，但是配置细则会被修改，导致同样使用这个目录的另一个Android Studio可能会无法正常加载配置）</p>
+<p>如果你不知道选什么，那就选最后一个</p>
+<p><strong>注意：插件也在配置目录中，如果你要保留以前安装的插件，那就选第一项</strong></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224151059509.png" alt="image-20191224151059509"></p>
+<h4 id="配置代理"><a href="#配置代理" class="headerlink" title="配置代理"></a>配置代理</h4><p>首次启动有可能会弹出这个，配置代理，如果你有的话，选第一项进去配置，没有就点 <code>Cancel</code></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224151711419.png" alt="image-20191224151711419"></p>
+<p><strong>代理配置</strong></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224151933355.png" alt="image-20191224151933355"></p>
+<p>根据你的代理情况填写然后点 <code>Check connection</code> 校验，会弹出一个提示框，输入谷歌的首页，然后回车</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.google.com/</span><br></pre></td></tr></table></figure>
+
+<p>如果看到这个框框就是配置成功了</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224152128215.png" alt="image-20191224152128215"></p>
+<h4 id="首次启动配置-1"><a href="#首次启动配置-1" class="headerlink" title="首次启动配置"></a>首次启动配置</h4><p>看图就好没啥好说的</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224152239761.png" alt="image-20191224152239761"></p>
+<p>选个皮肤</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224152514463.png" alt="image-20191224152514463"></p>
+<p><strong>配置SDK</strong></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224152711519.png" alt="image-20191224152711519"></p>
+<p>然后无脑Next、Finish即可，如果勾了模拟器会弹出 <code>Intel</code> 模拟器插件的安装界面，无脑next即可。</p>
+<p>（AMD的CPU是装不上这个插件的，所以大可不勾模拟器）</p>
+<h2 id="下载SDK"><a href="#下载SDK" class="headerlink" title="下载SDK"></a>下载SDK</h2><p>见到这个界面就大功告成………</p>
+<p>了一半了，嗯(⊙_⊙)</p>
+<p>我们还有一堆SDK需要下载</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224152939564.png" alt="image-20191224152939564"></p>
+<h4 id="下载SDK-1"><a href="#下载SDK-1" class="headerlink" title="下载SDK"></a>下载SDK</h4><p>点开这个 <code>Configure</code> ，常用的选项图上标注好了</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224153211395.png" alt="image-20191224153211395"></p>
+<p>选择 <code>SDK Manager</code> </p>
+<h4 id="SDK工具下载"><a href="#SDK工具下载" class="headerlink" title="SDK工具下载"></a>SDK工具下载</h4><p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224154825158.png" alt="image-20191224154825158"></p>
+<p>展开详情后可以看到所有的版本，<code>Build-Tools</code> 官方推荐<strong>永远使用最新版本</strong>。</p>
+<p>必备的组件会在首次安装时自动勾选，如果缺什么在你项目编译的时候会报出来的，如果看着烦可以统统勾选。</p>
+<h4 id="AVD镜像下载"><a href="#AVD镜像下载" class="headerlink" title="AVD镜像下载"></a>AVD镜像下载</h4><p>AVD是 <code>Android Vitrual Devices</code> 的缩写，即 <code>Android Studio</code> 自带的模拟器，是目前在电脑上<strong>运行速度最快</strong>的安卓模拟器。</p>
+<p><strong>即使你不用模拟器，也一定要下载最新版本的镜像</strong></p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224155242708.png" alt="image-20191224155242708"></p>
+<p>展开详情以后会发现选项特别得多</p>
+<p>其中4.4W是安卓手表</p>
+<p>选项含义以7.1.1为例</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224155717943.png" alt="image-20191224155717943"></p>
+<p>勾选了要下载的项之后，点右下角的ok，会弹出提示框告诉你大概会占用多少硬盘空间，直接ok就好</p>
+<p><img src="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/image-20191224155820206.png" alt="image-20191224155820206"></p>
+<p>有时候会弹出一个霸王条款界面，左侧选项目，右侧选同意，然后Next即可<br>如果进度条很慢很慢可以考虑搭个梯子，其实国内有源，只是不稳定，时快时慢。<br>强烈建议用梯子，因为 <code>Gradle</code> 也可以用到</p>
+<h2 id="环境配置完成"><a href="#环境配置完成" class="headerlink" title="环境配置完成"></a>环境配置完成</h2><p>至此环境配置完成，可以准备 <code>Hello World</code> 了</p>
+
     </div>
 
     
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a>
+        </div>
     
 
     <!-- Comments -->
