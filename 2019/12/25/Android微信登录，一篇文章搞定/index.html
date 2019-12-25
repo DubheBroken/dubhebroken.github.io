@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="申请账号去微信开放平台申请账号添加应用后在底部填写Android包名和应用签名，填写Android的就完了，iOS咱不管签名使用Gensignature获取">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="天枢破军">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Android微信登录，一篇文章搞定"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="天枢破军的个人博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Android微信登录，一篇文章搞定 - 天枢破军的个人博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact">
+                    联系我
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/links">
+                    友情链接
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/12/25/Android%E5%BE%AE%E4%BF%A1%E7%99%BB%E5%BD%95%EF%BC%8C%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E6%90%9E%E5%AE%9A/">
+                Android微信登录，一篇文章搞定
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-25</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="申请账号"><a href="#申请账号" class="headerlink" title="申请账号"></a>申请账号</h2><p>去<a href="https://open.weixin.qq.com/" target="_blank" rel="noopener">微信开放平台</a>申请账号<br>添加应用后在底部填写Android<code>包名</code>和<code>应用签名</code>，填写Android的就完了，iOS咱不管<br>签名使用<a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN" target="_blank" rel="noopener">Gensignature</a>获取</p>
+<a id="more"></a>
+
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/10/16d1b90631503f74?w=1248&h=768&f=png&s=96074" alt="Gensignature下载位置"><br>使用方法是把这个APP安装到手机，然后把要获取签名的APP<font color="#A52A2A" size="4">使用发布版签名</font>安装到同一个手机，然后输入包名点击下图的获取。<br><img src="https://user-gold-cdn.xitu.io/2019/9/10/16d1b91bbc9d417c?w=411&h=330&f=png&s=80985" alt="获取签名"><br>签名和包名填写到页面底部的这里↓<br><img src="https://user-gold-cdn.xitu.io/2019/9/10/16d1b8eb18b3fa39?w=1194&h=376&f=png&s=32321" alt="填写包名和签名"><br>然后在页面顶部复制这个<code>AppID</code>，这个东西是不会变的，复制一次就行了，下面的<code>AppSecret</code>可用可不用。<br>因为微信的登录回调写得很智障，用户昵称头像之类的东东，你和后台，谁去管微信要，谁就要用到这个AppSecret<br><img src="https://user-gold-cdn.xitu.io/2019/9/10/16d1b9546a3a4490?w=377&h=155&f=png&s=16147" alt="AppID"></p>
+<h2 id="自动给debug包签名"><a href="#自动给debug包签名" class="headerlink" title="自动给debug包签名"></a>自动给debug包签名</h2><p>如果不想每次都手动签名，可以使用gradle脚本自动签名。<br>在<code>APP</code>的<code>build.gradle</code>下<code>android</code>中加入</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">signingConfigs &#123;</span><br><span class="line">        debug &#123;</span><br><span class="line">            keyAlias <span class="string">'aaa'</span><span class="comment">//库中对应的签名文件</span></span><br><span class="line">            keyPassword <span class="string">'123456'</span><span class="comment">//签名密码</span></span><br><span class="line">            storeFile <span class="keyword">file</span>(<span class="string">'D:/AndroidProjects/xxx.jks'</span>)<span class="comment">//签名库文件路径和名称，强烈建议存在项目目录里</span></span><br><span class="line">            storePassword <span class="string">'123456'</span><span class="comment">//签名库密码</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入lib"><a href="#导入lib" class="headerlink" title="导入lib"></a>导入lib</h2><p>跟我念：<font color="#A52A2A" size="4">Gradle大法好！</font>微信支付和微信登录都在这一个包里，导入就完事了</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//微信SDK</span></span><br><span class="line">implementation <span class="string">'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'</span></span><br></pre></td></tr></table></figure>
+<h2 id="登录代码（写到你的登录界面里）"><a href="#登录代码（写到你的登录界面里）" class="headerlink" title="登录代码（写到你的登录界面里）"></a>登录代码（写到你的登录界面里）</h2><p>先实例化一个微信API对象<br>Java  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> IWXAPI api;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化全局微信api对象，可以写到Activity的onCreate里也可以把整个对象放在Application里全局使用</span></span><br><span class="line">        api = WXAPIFactory.createWXAPI(<span class="keyword">this</span>, <span class="string">"你的AppID"</span>, <span class="keyword">false</span>);</span><br><span class="line">        api.registerApp(<span class="string">"你的AppID"</span>);</span><br></pre></td></tr></table></figure>
+<p>Kotlin  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> api: IWXAPI</span><br><span class="line"></span><br><span class="line"><span class="comment">//实例化全局微信api对象，可以写到Activity的onCreate里也可以把整个对象放在Application里全局使用</span></span><br><span class="line">        api = WXAPIFactory.createWXAPI(<span class="keyword">this</span>, <span class="string">"你的AppID"</span>, <span class="literal">false</span>)</span><br><span class="line">        api.registerApp(<span class="string">"你的AppID"</span>)</span><br></pre></td></tr></table></figure>
+<p>然后是登录方法<br>Java  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">login</span><span class="params">(IWXAPI api)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!api.isWXAppInstalled()) &#123;</span><br><span class="line">            ToastUtils.showShort(<span class="string">"您还未安装微信客户端！"</span>);<span class="comment">//这里是一句Toast，可以用你自己的Toast工具类替换</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        SendAuth.Req req = SendAuth.Req();</span><br><span class="line">        req.scope = <span class="string">"snsapi_userinfo"</span>;</span><br><span class="line">        req.state = <span class="string">"wechat_sdk_demo_test"</span>;</span><br><span class="line">        api.sendReq(req);</span><br><span class="line">        finish();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Kotlin  </p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">login</span><span class="params">(api: <span class="type">IWXAPI</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!api.isWXAppInstalled) &#123;</span><br><span class="line">            ToastUtils.showShort(<span class="string">"您还未安装微信客户端！"</span>)<span class="comment">//这里是一句Toast，可以用你自己的Toast工具类替换</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">val</span> req = SendAuth.Req()</span><br><span class="line">        req.scope = <span class="string">"snsapi_userinfo"</span></span><br><span class="line">        req.state = <span class="string">"wechat_sdk_demo_test"</span></span><br><span class="line">        api.sendReq(req)</span><br><span class="line">        finish()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>直接调用这个方法就可以请求微信登录，回调写的下面提到的Activtiy里。<br>对，没错，回调写到其他Activity里，是不是很扯淡？不知道他微信的SDK开发人员脑子里是不是进了硫酸(╯‵□′)╯︵┻━┻写出这种神仙操作逻辑。  </p>
+<h2 id="创建wxapi的Activity"><a href="#创建wxapi的Activity" class="headerlink" title="创建wxapi的Activity"></a>创建wxapi的Activity</h2><p>在<code>你的包名</code>下建一个子package叫<code>wxapi</code>，<font color="#A52A2A" size="4">这个名字不能改</font>，然后在里面新建<br><code>WXEntryActivity</code> -&gt; 微信登录/微信分享回调<br><code>WXPayEntryActivity</code> -&gt; 微信支付回调<br>他们都继承<code>Activity</code>实现<code>IWXAPIEventHandler</code>接口  </p>
+<h2 id="注册回调Activity"><a href="#注册回调Activity" class="headerlink" title="注册回调Activity"></a>注册回调Activity</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 微信回调STRART --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">".wxapi.WXEntryActivity"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:configChanges</span>=<span class="string">"keyboardHidden|orientation|screenSize"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:exported</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:theme</span>=<span class="string">"@android:style/Theme.Translucent.NoTitleBar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--/*微信支付*/--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:name</span>=<span class="string">".wxapi.WXPayEntryActivity"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:exported</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:launchMode</span>=<span class="string">"singleInstance"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:theme</span>=<span class="string">"@style/AppSplash"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 微信支付 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.VIEW"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">data</span> <span class="attr">android:scheme</span>=<span class="string">"在这里填写AppID"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>style内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppSplash"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!-- 设置启动背景透明 --&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!-- 设置启动不要Title --&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>本篇讲微信登录，支付用的<code>WXPayEntryActivity</code>如果你的项目没用到可以不写也没关系。<br>在<code>WXEntryActivity</code>和刚才一样拿一个<code>WXAPI</code>对象，创建过程是一毛一样的这里就省略不写了，如果你一开始是写在<code>Application</code>里面的现在直接拿来用就好了。<br>不同的是这次要在<code>onCreate</code>和<code>onNewIntent</code>里加上</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setIntent(intent);<span class="comment">//onNewIntent还要在前面加这句，onCreate不用</span></span><br><span class="line">api.handleIntent(intent, <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<p>然后重写<code>onReq</code>（请求发出）和<code>onResp</code>（请求返回）两个方法<br>发出的地方(onReq)打个日志就好</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText(<span class="keyword">this</span>, <span class="string">"openid = "</span> + req.openId, Toast.LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
+<h3 id="接收返回的地方-onResp-我们来搞事情"><a href="#接收返回的地方-onResp-我们来搞事情" class="headerlink" title="接收返回的地方(onResp)我们来搞事情"></a>接收返回的地方(onResp)我们来搞事情</h3><p>Java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onResp</span><span class="params">(BaseResp resp)</span> </span>&#123;</span><br><span class="line">    String result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">switch</span> (resp.errCode) &#123;</span><br><span class="line">            <span class="keyword">case</span> BaseResp.ErrCode.ERR_USER_CANCEL:</span><br><span class="line">                result = <span class="string">"操作取消"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> BaseResp.ErrCode.ERR_AUTH_DENIED:</span><br><span class="line">                result = <span class="string">"请求被拒绝"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                result = <span class="string">"未知错误"</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">switch</span> (resp.type) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span> (resp.errCode == BaseResp.ErrCode.ERR_OK) &#123;</span><br><span class="line">                    SendAuth.Resp resp2 = (SendAuth.Resp) resp;</span><br><span class="line">                    val code = resp2.code;</span><br><span class="line">                    result = <span class="string">"登录成功"</span>;</span><br><span class="line">                    getAccessToken(code);<span class="comment">//如果你家后台要昵称头像啥的用户信息你还要用这个code去请求微信的接口，否则在这里直接返回code给后台即可</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">                <span class="keyword">if</span> (resp.errCode == BaseResp.ErrCode.ERR_OK) &#123;</span><br><span class="line">                    result = <span class="string">"分享成功"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ToastUtil.showShort(result);</span><br><span class="line">        Logger.d(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Kotlin</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResp</span><span class="params">(resp: <span class="type">BaseResp</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">when</span> (resp.errCode) &#123;</span><br><span class="line">            BaseResp.ErrCode.ERR_USER_CANCEL -&gt; result = <span class="string">"操作取消"</span></span><br><span class="line">            BaseResp.ErrCode.ERR_AUTH_DENIED -&gt; result = <span class="string">"请求被拒绝"</span></span><br><span class="line">            <span class="keyword">else</span> -&gt; &#123;</span><br><span class="line">                result = <span class="string">"未知错误"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">when</span> (resp.type) &#123;</span><br><span class="line">            <span class="number">1</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (resp.errCode == BaseResp.ErrCode.ERR_OK) &#123;</span><br><span class="line">                    <span class="keyword">val</span> code = (resp <span class="keyword">as</span> SendAuth.Resp).code</span><br><span class="line">                    result = <span class="string">"登录成功"</span></span><br><span class="line">                    getAccessToken(code)<span class="comment">//如果你家后台要昵称头像啥的用户信息你还要用这个code去请求微信的接口，否则在这里直接返回code给后台即可</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="number">2</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (resp.errCode == BaseResp.ErrCode.ERR_OK) &#123;</span><br><span class="line">                    result = <span class="string">"分享成功"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ToastUtil.showShort(result)</span><br><span class="line">        Logger.d(result)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如果你家后台只要code的话，到这里为止就结束了，把<code>getAccessToken</code>那个方法换成http请求发给你家后台就行了。<br>如果你还想拿微信的昵称和头像的话，请继续往下看。</p>
+<h2 id="用code调微信接口拿token"><a href="#用code调微信接口拿token" class="headerlink" title="用code调微信接口拿token"></a>用code调微信接口拿token</h2><p>Java+OkHttp3</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getAccessToken</span><span class="params">(String code)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code";</span></span><br><span class="line">        String url = <span class="string">"https://api.weixin.qq.com/sns/oauth2/access_token"</span>;</span><br><span class="line">        OkHttpClient mOkHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">        <span class="comment">///&lt; Post方式也可以...</span></span><br><span class="line">        <span class="comment">//        RequestBody body = new FormBody.Builder()</span></span><br><span class="line">        <span class="comment">//                .add("appid", "替换为你的appid")</span></span><br><span class="line">        <span class="comment">//                .add("secret", "替换为你的app密钥")</span></span><br><span class="line">        <span class="comment">//                .add("code", code)</span></span><br><span class="line">        <span class="comment">//                .add("grant_type", "authorization_code")</span></span><br><span class="line">        <span class="comment">//                .build();</span></span><br><span class="line">        url += <span class="string">"?appid="</span> + <span class="string">"替换为你的appid"</span> + <span class="string">"&amp;secret=xxxxxxxx"</span></span><br><span class="line">                + <span class="string">"&amp;code="</span> + code + <span class="string">"&amp;grant_type=authorization_code"</span>;</span><br><span class="line">        <span class="keyword">final</span> Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">                .url(url)</span><br><span class="line">                <span class="comment">//.post(body)</span></span><br><span class="line">                .build();</span><br><span class="line">        Call call = mOkHttpClient.newCall(request);</span><br><span class="line">        call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">                finish();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">                String json = response.body().string();</span><br><span class="line">                AccessToken accessToken = JSONObject.parseObject(json, <span class="keyword">new</span> TypeReference&lt;AccessToken&gt;() &#123;</span><br><span class="line">                &#125;);</span><br><span class="line">                getUserInfo(accessToken.getAccess_token(), accessToken.getOpenid());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Kotlin+Kolley</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> code 根据code再去获取AccessToken</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getAccessToken</span><span class="params">(code: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        <span class="comment">//        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code";</span></span><br><span class="line">        <span class="comment">///&lt; Post方式也可以...</span></span><br><span class="line">        <span class="comment">//        RequestBody body = new FormBody.Builder()</span></span><br><span class="line">        <span class="comment">//                .add("appid", "替换为你的appid")</span></span><br><span class="line">        <span class="comment">//                .add("secret", "替换为你的app密钥")</span></span><br><span class="line">        <span class="comment">//                .add("code", code)</span></span><br><span class="line">        <span class="comment">//                .add("grant_type", "authorization_code")</span></span><br><span class="line">        <span class="comment">//                .build();</span></span><br><span class="line">        Http.post &#123;</span><br><span class="line">            <span class="comment">//            url += ("?appid=" + "替换为你的appid" + "&amp;secret=xxxxxxxx"</span></span><br><span class="line"><span class="comment">//                    + "&amp;code=" + code + "&amp;grant_type=authorization_code")</span></span><br><span class="line">            url = <span class="string">"https://api.weixin.qq.com/sns/oauth2/access_token"</span></span><br><span class="line">            params &#123;</span><br><span class="line">                <span class="string">"appid"</span> - <span class="string">"你的AppID"</span></span><br><span class="line">                <span class="string">"secret"</span> - <span class="string">"你的Secret"</span></span><br><span class="line">                <span class="string">"code"</span> - code<span class="comment">//你拿到的code</span></span><br><span class="line">                <span class="string">"grant_type"</span> - <span class="string">"authorization_code"</span></span><br><span class="line">            &#125;</span><br><span class="line">            onSuccess &#123; byts -&gt;</span><br><span class="line">                <span class="keyword">var</span> result = byts.toString(Charset.defaultCharset())</span><br><span class="line">                <span class="keyword">if</span> (TextUtils.isNotEmpty(result)) &#123;</span><br><span class="line">                    <span class="keyword">val</span> model: WXTokenModel = StringNullAdapter.gson.fromJson(result)</span><br><span class="line">                    getUserInfo(model.access_token, model.openid)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            onFail &#123; error -&gt;</span><br><span class="line">                <span class="keyword">var</span> message = error.message</span><br><span class="line">                ToastUtil.showShort(message)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>其中用到的<br><a href="https://github.com/ohmerhe/Kolley" target="_blank" rel="noopener">kolley</a>是一个<font color="#A52A2A" size="4">仅支持Kotlin</font>的轻量级网络请求框架<br><code>StringNullAdapter</code>是一个解析json时即使遇到空也不会崩溃的第三方库<font color="#A52A2A" size="4">仅支持Kotlin</font></p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.ohmerhe.kolley:kolley:0.3.1'</span></span><br><span class="line">implementation <span class="string">'com.github.mfangtao:FTLibary:2.0.2'</span></span><br></pre></td></tr></table></figure>
+<h3 id="WXTokenModel"><a href="#WXTokenModel" class="headerlink" title="WXTokenModel"></a>WXTokenModel</h3><p>JavaBean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXTokenModel</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String access_token = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> expires_in = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> openid: String = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> String refresh_token  = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> String scope: = <span class="string">""</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//getter/setter略</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Kotlin data class</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">WXTokenModel</span></span>(</span><br><span class="line">    <span class="keyword">var</span> access_token: String = <span class="string">""</span>,</span><br><span class="line">    <span class="keyword">var</span> expires_in: <span class="built_in">Int</span> = <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">var</span> openid: String = <span class="string">""</span>,</span><br><span class="line">    <span class="keyword">var</span> refresh_token: String = <span class="string">""</span>,</span><br><span class="line">    <span class="keyword">var</span> scope: String = <span class="string">""</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="用token调微信接口拿用户信息"><a href="#用token调微信接口拿用户信息" class="headerlink" title="用token调微信接口拿用户信息"></a>用token调微信接口拿用户信息</h2><p>Java+OkHttp3</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getUserInfo</span><span class="params">(String access_token, String openid)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//        String url = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&amp;openid=OPENID";</span></span><br><span class="line">        String url = <span class="string">"https://api.weixin.qq.com/sns/userinfo"</span>;</span><br><span class="line">        OkHttpClient mOkHttpClient = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">        RequestBody body = <span class="keyword">new</span> FormBody.Builder()</span><br><span class="line">                .add(<span class="string">"access_token"</span>, access_token)</span><br><span class="line">                .add(<span class="string">"openid"</span>, openid)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">final</span> Request request = <span class="keyword">new</span> Request.Builder()</span><br><span class="line">                .url(url)</span><br><span class="line">                .post(body)</span><br><span class="line">                .build();</span><br><span class="line">        Call call = mOkHttpClient.newCall(request);</span><br><span class="line">        call.enqueue(<span class="keyword">new</span> Callback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</span><br><span class="line">                finish();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">                String json = response.body().string();</span><br><span class="line">                WXUserInfo wxUserInfo = JSONObject.parseObject(json, <span class="keyword">new</span> TypeReference&lt;WXUserInfo&gt;() &#123;</span><br><span class="line">                &#125;);<span class="comment">//至此昵称头像全部到手，传给你家后台吧</span></span><br><span class="line">                finish();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Kotlin+kolley</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getUserInfo</span><span class="params">(access_token: <span class="type">String</span>, openid: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        <span class="comment">//        String url = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&amp;openid=OPENID";</span></span><br><span class="line">        Http.post &#123;</span><br><span class="line">            url = <span class="string">"https://api.weixin.qq.com/sns/userinfo"</span></span><br><span class="line">            params &#123;</span><br><span class="line">                <span class="string">"access_token"</span> - access_token</span><br><span class="line">                <span class="string">"openid"</span> - openid</span><br><span class="line">            &#125;</span><br><span class="line">            onSuccess &#123; byts -&gt;</span><br><span class="line">                <span class="keyword">var</span> result = byts.toString(Charset.defaultCharset())</span><br><span class="line">                <span class="keyword">if</span> (TextUtils.isNotEmpty(result)) &#123;</span><br><span class="line">                    <span class="keyword">val</span> model: WXUserInfo = StringNullAdapter.gson.fromJson(result)</span><br><span class="line">                    sendThird(openid, model.headimgurl, model.nickname)<span class="comment">//至此昵称头像全部到手，传给你家后台吧</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            onFail &#123; error -&gt;</span><br><span class="line">                <span class="keyword">var</span> message = error.message</span><br><span class="line">                ToastUtil.showShort(message)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="WXUserInfo"><a href="#WXUserInfo" class="headerlink" title="WXUserInfo"></a>WXUserInfo</h3><p>JavaBean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">WXUserInfo</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> String city = <span class="string">""</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> String country = <span class="string">""</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> String headimgurl = <span class="string">""</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> String nickname = <span class="string">""</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> String openid= <span class="string">""</span>;</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">private</span> List&lt;String&gt; privilege = ArrayList()</span></span>;</span><br><span class="line">    <span class="keyword">private</span> String province <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> sex <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> String unionid <span class="string">""</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//getter/setter略</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Kotlin data class</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data class WXUserInfo(</span><br><span class="line">    var city: String &#x3D; &quot;&quot;,</span><br><span class="line">    var country: String &#x3D; &quot;&quot;,</span><br><span class="line">    var headimgurl: String &#x3D; &quot;&quot;,</span><br><span class="line">    var nickname: String &#x3D; &quot;&quot;,</span><br><span class="line">    var openid: String &#x3D; &quot;&quot;,</span><br><span class="line">    var privilege:  MutableList&lt;String&gt; &#x3D; ArrayList(),</span><br><span class="line">    var province: String &#x3D; &quot;&quot;,</span><br><span class="line">    var sex: Int &#x3D; 0,</span><br><span class="line">    var unionid: String &#x3D; &quot;&quot;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="微信登录奇怪的调用链导致的问题"><a href="#微信登录奇怪的调用链导致的问题" class="headerlink" title="微信登录奇怪的调用链导致的问题"></a>微信登录奇怪的调用链导致的问题</h2><p>这里的调用链是你的登录界面→微信的登录界面→微信的回调界面，你会发现在这个跳转中由于微信的登录界面这个东东屁都不给你返回，你的登录界面不能通过<code>onActivtiyResult</code>之类的方法去拿登录结果，登录结果被传给了微信的回调界面。<br>你的登录界面完完全全就是个请求发送器，发送请求之后就没用了。<br>而<code>WXEntryActivity</code>通常是一个空的界面，没有layout，因为绝大多数APP微信登录之后都是直接进主页的，而不是有一个专门的登录成功界面，所以<code>WXEntryActivity</code>在很多APP中都是透明的。<br>于是在<code>api.sendReq(req)</code>这行下面通常都会加一句<code>finish()</code>让登录界面出栈，避免用户在APP玩了一圈想退出的时候退回到了栈底的登录界面。<br>当然这样一来会导致一个问题，那就是用户在微信授权的界面点退出直接就没有栈底元素了直接回桌面了（其实是走到了<code>WXEntryActivity</code>，但是由于它是透明的，所以看起来像是APP退出了一样），所以解决办法就是在<code>WXEntryActivity</code>里当<code>resp.errCode != BaseResp.ErrCode.ERR_OK</code>的时候手动去启动一下我们自己的登录界面。</p>
+<h2 id="关于集成友盟的登录方案"><a href="#关于集成友盟的登录方案" class="headerlink" title="关于集成友盟的登录方案"></a>关于集成友盟的登录方案</h2><p>如果你的项目使用了友盟分享的话，就不用导入一开始说的那个库了，取而代之的是下面这个库</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.umeng.umsdk:share-wx:6.9.4'</span></span><br></pre></td></tr></table></figure>
+<p>然后在<code>Application</code>的<code>onCreate</code>中加上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UMConfigure.init(<span class="keyword">this</span>, <span class="string">"友盟AppKey"</span>, <span class="string">"Umeng"</span>, UMConfigure.DEVICE_TYPE_PHONE, <span class="string">"友盟MessageSecret"</span>);</span><br><span class="line">PlatformConfig.setWeixin(<span class="string">"微信AppID"</span>, <span class="string">"微信AppSecret"</span>);</span><br></pre></td></tr></table></figure>
+<p>调用改为<br>Java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> UMShareAPI umShareAPI;</span><br><span class="line"><span class="keyword">private</span> UMAuthListener umAuthListener;<span class="comment">//这东西的方法直接空实现即可，因为它的回调微信不会走。是方法空实现，不是对象留空</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//onCreate中</span></span><br><span class="line">umShareAPI = UMShareAPI.get(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用登录</span></span><br><span class="line">umShareAPI.getPlatformInfo(<span class="keyword">this</span>, SHARE_MEDIA.WEIXIN, umAuthListener);<span class="comment">//微信登录</span></span><br></pre></td></tr></table></figure>
+<p>Kotlin</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> umShareAPI: UMShareAPI</span><br><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> umAuthListener: UMAuthListener<span class="comment">//这东西的方法直接空实现即可，因为它的回调微信不会走。是方法空实现，不是对象留空</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//onCreate中</span></span><br><span class="line">umShareAPI = UMShareAPI.<span class="keyword">get</span>(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用登录</span></span><br><span class="line">umShareAPI.getPlatformInfo(<span class="keyword">this</span>, SHARE_MEDIA.WEIXIN, umAuthListener)<span class="comment">//微信登录</span></span><br></pre></td></tr></table></figure>
+<p>其他部分和官方SDK相同</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>部分代码来自<a href="https://zhuanlan.zhihu.com/p/44980468" target="_blank" rel="noopener">Android-微信登录坑(+友盟微信登录)</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/Android第三方SDK/">#Android第三方SDK</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    我是一名有严重强迫症的安卓开发者，致力于还原设计图的每一个像素，把最好的体验带给用户。
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E5%9C%A8Deepin%E4%B8%8B%E4%BD%BF%E7%94%A8SSR/">在Deepin下使用SSR</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/Fragment%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">Fragment管理工具类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3Linux%E4%B8%8Bkvm%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%EF%BC%8CAVD%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98/">Linux下kvm无法访问，解决AVD虚拟机无法启</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3APPT2%E6%8A%A5%E9%94%99%E5%92%8CGradle%E6%8A%A5%E9%94%99/">解决APPT2报错和Gradle报错</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android%E5%BC%80%E5%8F%91%E5%85%89%E9%80%9F%E5%85%A5%E5%9D%91/">Android开发光速入坑</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Hexo/">Hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Linux/">Linux</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Git/">Git</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/DubheBroken" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:z1574507001@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/" target="_blank" rel="noopener">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

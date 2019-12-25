@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="上一个项目需要在Fragment里切换和回滚Fragment，而Fragment自己又不能销毁掉自己，
+FragmentManager和FragmentTransaction也不能在Fragment类中实例化，在Activity里写接口又太麻烦了，索性写了个工具类。
+源码如下：">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="天枢破军">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Fragment管理工具类"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="天枢破军的个人博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Fragment管理工具类 - 天枢破军的个人博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact">
+                    联系我
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/links">
+                    友情链接
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/12/25/Fragment%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                Fragment管理工具类
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-25</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>上一个项目需要在Fragment里切换和回滚Fragment，而Fragment自己又不能销毁掉自己，</p>
+<p>FragmentManager和FragmentTransaction也不能在Fragment类中实例化，在Activity里写接口又太麻烦了，索性写了个工具类。</p>
+<p>源码如下：</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dubhe.broken.fragmenthelper;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.Fragment;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.FragmentManager;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.FragmentTransaction;</span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 作者：DubheBroken</span></span><br><span class="line"><span class="comment"> * 时间：2018/11/19</span></span><br><span class="line"><span class="comment"> * 地址：github.com/DubheBroken/FragmentHelper</span></span><br><span class="line"><span class="comment"> * 说明：Fragment管理工具类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentHelper</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> FragmentManager fragmentManager;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> FragmentTransaction fragmentTransaction;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> FragmentManager <span class="title">getFragmentManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fragmentManager;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setFragmentManager</span><span class="params">(FragmentManager fragmentManager)</span> </span>&#123;</span><br><span class="line">        FragmentHelper.fragmentManager = fragmentManager;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FragmentTransaction <span class="title">getFragmentTransaction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> fragmentTransaction;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setFragmentTransaction</span><span class="params">(FragmentTransaction fragmentTransaction)</span> </span>&#123;</span><br><span class="line">        FragmentHelper.fragmentTransaction = fragmentTransaction;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initFragmentTransaction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        fragmentTransaction = fragmentManager.beginTransaction();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 此方法在onBackPressed被重写时使用</span></span><br><span class="line"><span class="comment">     * 回退到上一层fragment</span></span><br><span class="line"><span class="comment">     * 如果已经是最后一层，隐藏界面</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> activity 当前activity，仅支持AppCompatActivity</span></span><br><span class="line"><span class="comment">     *                 在fragment中请使用(AppCompatActivity)getActivity()作为参数传入</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">back</span><span class="params">(AppCompatActivity activity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (getFragmentManager().getBackStackEntryCount() &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            activity.moveTaskToBack(<span class="keyword">true</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            fragmentManager.popBackStack();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 切换Fragment为传入参数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> activity 当前activity，仅支持AppCompatActivity</span></span><br><span class="line"><span class="comment">     *                 在fragment中请使用(AppCompatActivity)getActivity()作为参数传入</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> fragment 目标fragment对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">switchFragment</span><span class="params">(Fragment fragment, AppCompatActivity activity)</span> </span>&#123;</span><br><span class="line">        FragmentHelper.setFragmentManager(activity.getSupportFragmentManager());</span><br><span class="line">        FragmentHelper.initFragmentTransaction();</span><br><span class="line">        <span class="comment">//frame容器id</span></span><br><span class="line">        fragmentManager.findFragmentById(R.id.frame_main);</span><br><span class="line">        fragmentTransaction</span><br><span class="line">                .replace(R.id.frame_main, fragment)</span><br><span class="line">                .addToBackStack(<span class="keyword">null</span>)</span><br><span class="line">                .commit();<span class="comment">//替换成下面那句可以在frameLayout容器被遮挡的情况下替换fragment</span></span><br><span class="line"><span class="comment">//                .commitAllowingStateLoss();</span></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先在你的项目中准备一个FrameLayout控件作为Fragment的容器，再把上述源码写成一个类放到你的项目里，然后把第64行和66行的frame_main换成你的FrameLayout的ID。</p>
+<h3 id="切换Frgament"><a href="#切换Frgament" class="headerlink" title="切换Frgament"></a>切换Frgament</h3><p>炒鸡简单，就一行代码：（第一个参数是要切换到的Fragment对象）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragmentHelper.switchFragment(<span class="keyword">new</span> Fragment2(), <span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="回退Fragment"><a href="#回退Fragment" class="headerlink" title="回退Fragment"></a>回退Fragment</h3><p>直接按返回键即可，按钮想实现回退可以直接往返回键上面映射。<br>如果你重写了返回键，可以用这行代码来进行回退操作：</p>
+<h4 id="在Activity中"><a href="#在Activity中" class="headerlink" title="在Activity中"></a>在Activity中</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragmentHelper.back(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="在Fragment中"><a href="#在Fragment中" class="headerlink" title="在Fragment中"></a>在Fragment中</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragmentHelper.back((AppCompatActivity) getActivity());</span><br></pre></td></tr></table></figure>
+<p>（此处主Acitiviy是AppCompatActivity，支持FragmentActivity，但是这个类太老了不推荐。如果一定要FragmentActivity，把源码FragmentHelper.java中的AppCompatActivity换成FragmentActivity，然后去掉强转即可）</p>
+<h3 id="获取FragmentManager和FragmentTransaction的实例"><a href="#获取FragmentManager和FragmentTransaction的实例" class="headerlink" title="获取FragmentManager和FragmentTransaction的实例"></a>获取FragmentManager和FragmentTransaction的实例</h3><p>直接get即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FragmentManager fm = FragmentHelper.getFragmentManager();</span><br><span class="line">FragmentTransaction ft = FragmentHelper.getFragmentTransaction();</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/Android工具类/">#Android工具类</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    我是一名有严重强迫症的安卓开发者，致力于还原设计图的每一个像素，把最好的体验带给用户。
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E5%9C%A8Deepin%E4%B8%8B%E4%BD%BF%E7%94%A8SSR/">在Deepin下使用SSR</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/Fragment%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">Fragment管理工具类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3Linux%E4%B8%8Bkvm%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%EF%BC%8CAVD%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98/">Linux下kvm无法访问，解决AVD虚拟机无法启</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3APPT2%E6%8A%A5%E9%94%99%E5%92%8CGradle%E6%8A%A5%E9%94%99/">解决APPT2报错和Gradle报错</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android%E5%BC%80%E5%8F%91%E5%85%89%E9%80%9F%E5%85%A5%E5%9D%91/">Android开发光速入坑</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Hexo/">Hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Linux/">Linux</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Git/">Git</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/DubheBroken" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:z1574507001@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/" target="_blank" rel="noopener">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

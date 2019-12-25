@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="报错内容常见死法是像图中这样的一片红gradle报错，或者是AAPT2 Error。">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="All categories"/>
+        <meta property="og:title" content="解决APPT2报错和Gradle报错"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +45,7 @@
 
     <!-- Title -->
     
-    <title>All categories - 天枢破军的个人博客</title>
+    <title>解决APPT2报错和Gradle报错 - 天枢破军的个人博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -136,49 +138,67 @@
     <div class="col-sm-12">
 
         <!--Title and Logo-->
-        
-            <header>
+        <header>
     <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-folder-open" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">All categories</h1>
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-            <section class="main archive-container">
-                
-                        <div class="archive-post">
-    <a href="/categories/Android%E5%BC%80%E5%8F%91%E5%85%89%E9%80%9F%E5%85%A5%E5%9D%91/">
-        Android开发光速入坑
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Hexo/">
-        Hexo
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Android/">
-        Android
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Linux/">
-        Linux
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Git/">
-        Git
-    </a>
-</div>
-                
-            </section>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/12/25/%E8%A7%A3%E5%86%B3APPT2%E6%8A%A5%E9%94%99%E5%92%8CGradle%E6%8A%A5%E9%94%99/">
+                解决APPT2报错和Gradle报错
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-25</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
         
+
+        <!-- Post Content -->
+        <h3 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h3><p>常见死法是像图中这样的一片红gradle报错，或者是AAPT2 Error。<br><img src="https://user-gold-cdn.xitu.io/2019/7/3/16bb58f1691170d8?w=1857&h=295&f=png&s=53875" alt="报错信息"></p>
+<a id="more"></a>
+
+<h3 id="原因筛查"><a href="#原因筛查" class="headerlink" title="原因筛查"></a>原因筛查</h3><p>这东西报错的原因是XML里有语法错误，但是又不报出来，AAPT2说的什么日志文件基本全是废话。要找到出错的XML其实很简单，只需要运行一个Gradle脚本。<br>展开Android Studio右侧的Gradle面板，找到这个叫buildDependents的东西双击运行。<br><img src="https://user-gold-cdn.xitu.io/2019/7/3/16bb591b055bcc5c?w=641&h=572&f=png&s=49660" alt="Gradle脚本"></p>
+<h3 id="罪魁祸首"><a href="#罪魁祸首" class="headerlink" title="罪魁祸首"></a>罪魁祸首</h3><p>然后底部会弹出一个窗口运行脚本，跑完肯定会出现红色的内容，里面会提到出错的xml文件和错误的地方，有时候还会给你行号。 </p>
+<p>我这里遇到的问题是用svg2vector的时候给图层自动写了一堆null属性，干掉他们就行了。<br><img src="https://user-gold-cdn.xitu.io/2019/7/3/16bb5931955c6739?w=1609&h=900&f=png&s=103949" alt="罪魁祸首"></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>使用过Gradle脚本以后，运行旁边的脚本会自动切换为你选择的脚本，所以这个时候你点Run就会运行脚本而不是运行APP，每次用过之后记得要手动切换回app<br><img src="https://user-gold-cdn.xitu.io/2019/7/3/16bb5955389d9eaf?w=602&h=115&f=png&s=10862" alt="切换脚本"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/Android踩坑/">#Android踩坑</a> <a href="/tags/Gradle/">#Gradle</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
     </div>
 </div>
 

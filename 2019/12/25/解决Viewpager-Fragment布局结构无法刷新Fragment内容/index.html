@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="布局结构首先来创建一个很常见的Viewpager+Fragment的布局。">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="天枢破军">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="解决Viewpager+Fragment布局结构无法刷新Fragment内容"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="天枢破军的个人博客"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary" />
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>解决Viewpager+Fragment布局结构无法刷新Fragment内容 - 天枢破军的个人博客</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Google Analytics -->
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    首页
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    分类
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    标签
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    归档
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact">
+                    联系我
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/links">
+                    友情链接
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/12/25/%E8%A7%A3%E5%86%B3Viewpager-Fragment%E5%B8%83%E5%B1%80%E7%BB%93%E6%9E%84%E6%97%A0%E6%B3%95%E5%88%B7%E6%96%B0Fragment%E5%86%85%E5%AE%B9/">
+                解决Viewpager+Fragment布局结构无法刷新Fragment内容
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-25</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="布局结构"><a href="#布局结构" class="headerlink" title="布局结构"></a>布局结构</h2><p>首先来创建一个很常见的Viewpager+Fragment的布局。</p>
+<a id="more"></a>
+
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dubhe.view.fragment</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.<span class="keyword">annotation</span>.SuppressLint</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.Fragment</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater</span><br><span class="line"><span class="keyword">import</span> android.view.View</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.Glide</span><br><span class="line"><span class="keyword">import</span> com.bumptech.glide.request.target.SimpleTarget</span><br><span class="line"><span class="keyword">import</span> com.dubhe.view.R</span><br><span class="line"><span class="keyword">import</span> com.dubhe.view.config.Constant</span><br><span class="line"><span class="keyword">import</span> com.dubhe.view.mvp.model.ServiceModel</span><br><span class="line"><span class="keyword">import</span> kotlinx.android.synthetic.main.item.*</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFragment</span> : <span class="type">Fragment</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">		<span class="comment">//data是传入的数据Model对象</span></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">newInstance</span><span class="params">(<span class="keyword">data</span>: <span class="type">MyDataModel</span>)</span></span>: MyFragment &#123;</span><br><span class="line">            <span class="keyword">val</span> args = Bundle()</span><br><span class="line">            args.putSerializable(<span class="string">"data"</span>, <span class="keyword">data</span>)</span><br><span class="line">            <span class="keyword">val</span> fragment = MyFragment()</span><br><span class="line">            fragment.arguments = args</span><br><span class="line">            <span class="keyword">return</span> fragment</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 刷新数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setData</span><span class="params">(<span class="keyword">data</span>: <span class="type">MyDataModel</span>)</span></span> &#123;</span><br><span class="line">        initView(rootView, <span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateView</span><span class="params">(inflater: <span class="type">LayoutInflater</span>, container: <span class="type">ViewGroup</span>?, savedInstanceState: <span class="type">Bundle</span>?)</span></span>: View? &#123;</span><br><span class="line"><span class="comment">//        initView(view, imgID)</span></span><br><span class="line"><span class="comment">//        rootView = inflater.inflate(R.layout.item_wash_service2, container, false)</span></span><br><span class="line">        rootView = View.inflate(activity, R.layout.item_wash_service2, <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">return</span> rootView</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> hindPrice = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> rootView: View</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onViewCreated</span><span class="params">(view: <span class="type">View</span>, savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onViewCreated(view, savedInstanceState)</span><br><span class="line">        <span class="keyword">val</span> <span class="keyword">data</span> = arguments!!.getSerializable(<span class="string">"data"</span>) <span class="keyword">as</span> MyDataModel</span><br><span class="line">        initView(view, <span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressLint(<span class="meta-string">"SetTextI18n"</span>)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initView</span><span class="params">(view: <span class="type">View</span>, <span class="keyword">data</span>: <span class="type">MyDataModel</span>)</span></span> &#123;</span><br><span class="line">        <span class="comment">//<span class="doctag">TODO:</span>在此处将Model里的数据加载到界面</span></span><br><span class="line">        <span class="comment">//Java要用view.findViewById来取控件</span></span><br><span class="line">        <span class="comment">//Kotlin直接用ID调用就好</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ViewPager设置"><a href="#ViewPager设置" class="headerlink" title="ViewPager设置"></a>ViewPager设置</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> listDatas: MutableList&lt;MyDataModel&gt; = ArrayList()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">listDatas.clear()</span><br><span class="line">listDatas.addAll(model.list)</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> listDatas) &#123;</span><br><span class="line">    <span class="keyword">val</span> position = listDatas.indexOf(item)</span><br><span class="line">    <span class="keyword">if</span> (position &lt; list.size) &#123;</span><br><span class="line">        <span class="comment">//已经存在的项，刷新数据</span></span><br><span class="line">        <span class="keyword">val</span> fragment = list[position] <span class="keyword">as</span> CarWashPageFragment2</span><br><span class="line">        fragment.setData(listDatas[position])</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//添加不存在的项</span></span><br><span class="line">        <span class="keyword">val</span> fragment = CarWashPageFragment2.newInstance(item)</span><br><span class="line">        list.add(fragment)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (viewPager.adapter == <span class="literal">null</span>) &#123;</span><br><span class="line">    viewPager.adapter = <span class="keyword">object</span> : MyPagerAdapter(supportFragmentManager, list) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getItem</span><span class="params">(i: <span class="type">Int</span>)</span></span>: Fragment &#123;</span><br><span class="line">            <span class="keyword">return</span> list[i]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getCount</span><span class="params">()</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> list.size</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">viewPager.offscreenPageLimit = list.size<span class="comment">//缓存</span></span><br><span class="line">viewPager.adapter?.notifyDataSetChanged()</span><br></pre></td></tr></table></figure>
+<h3 id="破局重点MyPagerAdapter"><a href="#破局重点MyPagerAdapter" class="headerlink" title="*破局重点MyPagerAdapter"></a>*破局重点MyPagerAdapter</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPagerAdapter</span> <span class="title">extends</span> <span class="title">FragmentPagerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Fragment&gt; pages;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> MyPagerAdapter(FragmentManager fragmentManager, List&lt;Fragment&gt; pages) &#123;</span><br><span class="line">        <span class="keyword">super</span>(fragmentManager);</span><br><span class="line">        <span class="keyword">this</span>.pages = pages;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Fragment getItem(int index) &#123;</span><br><span class="line">        <span class="keyword">return</span> pages.<span class="keyword">get</span>(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> int getCount() &#123;</span><br><span class="line">        <span class="keyword">return</span> pages.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> int getItemPosition(Object <span class="keyword">object</span>) &#123;</span><br><span class="line">        int index = pages.indexOf (<span class="keyword">object</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> POSITION_NONE;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="原理和解决思路"><a href="#原理和解决思路" class="headerlink" title="原理和解决思路"></a>原理和解决思路</h3><p>日后再更<em>(:з」∠)</em></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/Android踩坑/">#Android踩坑</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    我是一名有严重强迫症的安卓开发者，致力于还原设计图的每一个像素，把最好的体验带给用户。
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E5%9C%A8Deepin%E4%B8%8B%E4%BD%BF%E7%94%A8SSR/">在Deepin下使用SSR</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/Fragment%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">Fragment管理工具类</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3Linux%E4%B8%8Bkvm%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%EF%BC%8CAVD%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98/">Linux下kvm无法访问，解决AVD虚拟机无法启</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3APPT2%E6%8A%A5%E9%94%99%E5%92%8CGradle%E6%8A%A5%E9%94%99/">解决APPT2报错和Gradle报错</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/Android%E5%BC%80%E5%8F%91%E5%85%89%E9%80%9F%E5%85%A5%E5%9D%91/">Android开发光速入坑</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Hexo/">Hexo</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Linux/">Linux</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Git/">Git</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/DubheBroken" target="_blank" rel="noopener">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:z1574507001@gmail.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/" target="_blank" rel="noopener">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

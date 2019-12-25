@@ -10,6 +10,11 @@
 
     <!--Description-->
     
+        <meta name="description" content="死因发生冲突的两个包分别是
+1234implementation &#39;com.umeng.umsdk:share-qq:6.9.4&#39;implementation(&#39;com.xyzlf.share:sharesdk:0.0.11&#39;) &amp;#123;    exclude group: &#39;com.android.support&#39;, module: &#39;appcompat-v7&#39;&amp;#125;
+第一个是友盟的分享SDK，第二个是xyzlf的ShareSDK这两个包引用的QQ的opensdk不仅版本不同连特么包名都不一样(╯‵□′)╯︵┻━┻
+死法如图：">
+    
 
     <!--Author-->
     
@@ -18,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="All categories"/>
+        <meta property="og:title" content="解决友盟分享SDK和其他分享SDK冲突的问题"/>
     
 
     <!--Open Graph Description-->
@@ -43,7 +48,7 @@
 
     <!-- Title -->
     
-    <title>All categories - 天枢破军的个人博客</title>
+    <title>解决友盟分享SDK和其他分享SDK冲突的问题 - 天枢破军的个人博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -136,49 +141,69 @@
     <div class="col-sm-12">
 
         <!--Title and Logo-->
-        
-            <header>
+        <header>
     <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-folder-open" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">All categories</h1>
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
     </div>
 </header>
-            <section class="main archive-container">
-                
-                        <div class="archive-post">
-    <a href="/categories/Android%E5%BC%80%E5%8F%91%E5%85%89%E9%80%9F%E5%85%A5%E5%9D%91/">
-        Android开发光速入坑
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Hexo/">
-        Hexo
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Android/">
-        Android
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Linux/">
-        Linux
-    </a>
-</div>
-                
-                        <div class="archive-post">
-    <a href="/categories/Git/">
-        Git
-    </a>
-</div>
-                
-            </section>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/12/25/%E8%A7%A3%E5%86%B3%E5%8F%8B%E7%9B%9F%E5%88%86%E4%BA%ABSDK%E5%92%8C%E5%85%B6%E4%BB%96%E5%88%86%E4%BA%ABSDK%E5%86%B2%E7%AA%81%E7%9A%84%E9%97%AE%E9%A2%98/">
+                解决友盟分享SDK和其他分享SDK冲突的问题
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-25</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
         
+
+        <!-- Post Content -->
+        <h3 id="死因"><a href="#死因" class="headerlink" title="死因"></a>死因</h3><p>发生冲突的两个包分别是</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">'com.umeng.umsdk:share-qq:6.9.4'</span></span><br><span class="line">implementation(<span class="string">'com.xyzlf.share:sharesdk:0.0.11'</span>) &#123;</span><br><span class="line">    exclude <span class="string">group:</span> <span class="string">'com.android.support'</span>, <span class="string">module:</span> <span class="string">'appcompat-v7'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个是友盟的分享SDK，第二个是<a href="https://github.com/xyzlf" target="_blank" rel="noopener">xyzlf</a>的<a href="https://github.com/xyzlf/ShareSDK" target="_blank" rel="noopener">ShareSDK</a><br>这两个包引用的QQ的opensdk不仅版本不同连特么包名都不一样(╯‵□′)╯︵┻━┻</p>
+<p>死法如图：</p>
+<a id="more"></a>
+
+<p><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68e6de5ef1?w=1240&h=226&f=png&s=174637" alt="Gradle依赖冲突报错"><br>可以看到是 <code>com.tencent.connect</code> 这个包下的类重复了，这种小问题，抠掉就完了～(￣▽￣～)~<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68e7f30e08?w=1096&h=208&f=png&s=62132" alt="尝试剔除"><br>纳尼？没效果！∑(っ °Д °;)っ这尼玛不科学啊，仔细看看报错，发现了一点端倪。<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68e6e0f164?w=1165&h=90&f=png&s=27324" alt="报错的module"><br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68e833a79f?w=359&h=243&f=png&s=19171" alt="实际jar包名称"><br>报错的 <code>module</code> 名称居然和引入的jar包名称不一样？下面shareSDK也是一样，并不是引入的jar包的名称。<br>哦~混淆改变了 <code>module</code> 名称所以抠不掉？（←我猜的）<br>还是说因为两个 <code>open_sdk</code> 的版本不一样？<br>于是我去尝试了 <code>clone</code> 一下 <code>ShareSDK</code> 然后用友盟的这个opensdk替换掉里面的opensdk发现问题依旧。  </p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>去<a href="https://developer.umeng.com/" target="_blank" rel="noopener">友盟的官网</a>重新下载SDK，不能用Gradle导入仓库里的SDK。<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68e88ef743?w=1240&h=512&f=png&s=305272" alt="友盟官网SDK下载界面"><br>在这里↓点设置，只勾QQ，然后打开zip包把lib和drawable里的东东丢到咱的项目里面<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c68f1a4e81b?w=576&h=248&f=png&s=15977" alt="SDK下载设置"><br>嗯？这是个啥玩意？里面竟然没有 <code>open_sdk</code> ？难道在jar包里？<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c691904238e?w=581&h=224&f=png&s=43436" alt="友盟QQ精简包"><br>还真特么没有？∑(っ °Д °;)っ<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c692469ede8?w=331&h=373&f=png&s=22261" alt="jar包内容"><br>等会∑(っ °Д °;)っ我再回去看看刚才这个下载界面<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c692283e640?w=900&h=95&f=png&s=13012" alt="精简版SDK的描述"><br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c693135ae40?w=613&h=87&f=png&s=12260" alt="完整版SDK的描述"><br>懂了！原来是友盟这厮魔改了SDK导致的！只勾完整版SDK，再次下载<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c69330ed8a1?w=806&h=511&f=png&s=87894" alt="完整版SDK"><br>这下对了嘛， <code>opensdk</code> 不要，把这个 <code>umeng-share-QQ-full</code> 拖进项目<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c693ba05719?w=316&h=88&f=png&s=8612" alt="放进libs"><br>搞定，友盟QQ登录和ShareSDK分享共存啦～(￣▽￣～)~</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>重新下载友盟的SDK，选择完整版，然后不导入opensdk就行了，记得导drawable<br>PS.期间一度怀疑是我Gradle没写对，反复修改Gradle都搞不定，差点怀疑人生。SDK冲突的时候还是应该从源头上找原因，SDK不靠谱简直出大问题，个人并不喜欢友盟这个平台，它导致的问题多花的时间比它的集成剩下的时间多多了。<br>不过。。。它是怎么搞定这么多平台的集成的∑(っ °Д °;)っ连脸书推特和刚凉凉的G+都有<br><img src="https://user-gold-cdn.xitu.io/2019/9/5/16d00c6955a49c3e?w=790&h=430&f=png&s=30349" alt="友盟支持的平台"></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Android/">#Android</a> <a href="/tags/Android第三方SDK/">#Android第三方SDK</a> <a href="/tags/Gradle/">#Gradle</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
     </div>
 </div>
 
