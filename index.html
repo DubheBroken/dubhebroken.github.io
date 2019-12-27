@@ -152,6 +152,170 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2019/12/27/%E9%BB%91%E7%A7%91%E6%8A%80-%E4%BD%BF%E7%94%A8%E8%BD%AF%E9%93%BE%E6%8E%A5%E8%8A%82%E7%9C%81%E7%B3%BB%E7%BB%9F%E7%9B%98%E7%A9%BA%E9%97%B4/">
+                [黑科技]使用软链接节省系统盘空间
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-27</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/开发技巧/">开发技巧</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="例：移动Genymotion数据目录"><a href="#例：移动Genymotion数据目录" class="headerlink" title="例：移动Genymotion数据目录"></a>例：移动Genymotion数据目录</h2><p>我们已经知道了 <code>Genymotion</code> 的数据目录在<code>C:\Users\[你的用户名]\AppData\Local\Genymobile</code>下<br>这里存储了缓存、模拟器镜像、模拟器文件等。<br>镜像和文件都是存储大头，动辄几十G的容量。<br>把它放在系统盘下明显很蠢，而且软件中并没有提供修改目录的功能。<br>所以我们用软链接大法来解决这个问题。<br>先<strong>把 <code>Genymotion</code> 关掉</strong><br>先<strong>把 <code>Genymotion</code> 关掉</strong><br>先<strong>把 <code>Genymotion</code> 关掉</strong>  </p>
+<p>然后把这个要移动的文件夹 <code>Genymobile</code> 移动到其他的目录，比如说我这里把它移动到D盘去。</p>
+<p>然后打开用<strong>管理员身份</strong>打开CMD</p>
+<p>（使用管理员身份是因为你要操作C盘，C盘是被写保护了的，普通用户无权操作）</p>
+<p>输入以下内容，注意引号和空格不能省略</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklink /d <span class="string">"以前的目录"</span> <span class="string">"现在的目录"</span></span><br></pre></td></tr></table></figure>
+
+<p>提示为xxx创建的符号链接，就是成功了。</p>
+<p>然后打开 <code>Genymotion</code> 正常使用即可。</p>
+<p><img src="/2019/12/27/%E9%BB%91%E7%A7%91%E6%8A%80-%E4%BD%BF%E7%94%A8%E8%BD%AF%E9%93%BE%E6%8E%A5%E8%8A%82%E7%9C%81%E7%B3%BB%E7%BB%9F%E7%9B%98%E7%A9%BA%E9%97%B4/image-20191227112829144.png" alt="创建软链接"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>使用指令的时候，第一个参数”以前的目录”必须是不存在的，否则会报错。</p>
+<p>第二个参数不会检验是否存在，如果不存在指令不会报错，且<strong>软件运行时也不会报错。</strong></p>
+<p>所以<strong>一定要确认</strong>第二个参数的目录存在，否则可能导致软件发生异常。</p>
+<p>引号不能省略，否则如果路径中某个文件夹的名字带空格的话，会被当成参数中断。</p>
+<p>（在bash中，参数使用空格间隔）</p>
+<h2 id="Android开发常见大体积目录"><a href="#Android开发常见大体积目录" class="headerlink" title="Android开发常见大体积目录"></a>Android开发常见大体积目录</h2><table>
+<thead>
+<tr>
+<th>目录用途</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SDK相关数据</td>
+<td>C:\Users\dubhe\.android</td>
+</tr>
+<tr>
+<td>Android Studio配置数据</td>
+<td>C:\Users\dubhe\.AndroidStudio[版本号]</td>
+</tr>
+<tr>
+<td>Android Studio Canary配置数据</td>
+<td>C:\Users\dubhe\.AndroidStudioPreview[版本号]</td>
+</tr>
+<tr>
+<td>Gradle目录</td>
+<td>C:\Users\dubhe\.gradle</td>
+</tr>
+</tbody></table>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+                高性能安卓模拟器 Genymotion安装和配置
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-12-27</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Android/">Android</a>
+                </span>
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>由于Genymotion的官网时常改版，本文具有一定的时效性。仅供参考，切勿生搬硬套。</p>
+<p><a href="https://www.genymotion.com/" target="_blank" rel="noopener">Genymotion官网</a></p>
+<p>点开上面的蓝字链接，找到点击顶部的 <code>Desktop Sign In</code></p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092110573.png" alt="Genymotion官网顶部"></p>
+<h2 id="创建账号"><a href="#创建账号" class="headerlink" title="创建账号"></a>创建账号</h2><p>点击登录页中的 <code>Create an account</code> 新建一个账号</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092317081.png" alt="登录页"></p>
+<p>参考下图填写表单</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092706899.png" alt="注册Genymotion账号"></p>
+<p>然后去邮箱里面收邮件<strong>激活账号</strong></p>
+<p>然后再回到刚才的登录页，输入账号密码点 <code>Sign in</code></p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092819979.png" alt="登录Genymotion"></p>
+<p>登录以后就可以看到下载按钮了</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092900722.png" alt="登录后的界面，可以看到下载按钮"></p>
+<p>有自带 <code>V-box</code> 的和不带 <code>V-box</code> 的两个版本，如果你的电脑上有 <code>V-box</code> 就选第二个，否则选第一个。</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227092929891.png" alt="下载Genymotion"></p>
+<h2 id="配置Genymotion"><a href="#配置Genymotion" class="headerlink" title="配置Genymotion"></a>配置Genymotion</h2><p>安装步骤无脑下一步略过不讲。</p>
+<h4 id="登录Genymotion客户端"><a href="#登录Genymotion客户端" class="headerlink" title="登录Genymotion客户端"></a>登录Genymotion客户端</h4><p>登录刚刚注册的 <code>Genymotion</code> 账户</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227094013850.png" alt="登录Genymotion账号"></p>
+<p>输入完点右下角 <code>Next</code>，然后你会看到下面这个界面，找你要许可证，选第二项个人使用。</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227094112022.png" alt="选择许可证"></p>
+<p>然后是霸王条款，读不读都TM得同意</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227094224831.png" alt="霸王条款"></p>
+<h4 id="选项设置"><a href="#选项设置" class="headerlink" title="选项设置"></a>选项设置</h4><p>然后终于可以看到这东西的主界面了开不开森٩(๑&gt;◡&lt;๑)۶</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227094714150.png" alt="Genymotion主界面"></p>
+<p>先别急着开始new模拟器，先改改设置，点击左上角菜单栏的 <code>Genymotion</code> → <code>Settings</code> </p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227095045402.png" alt="账户设置"></p>
+<p>其中 <code>Network</code> 就是刚刚登录页见过的代理设置，<code>V-box</code> 那栏建议不要动他。</p>
+<p>重点是这个 <code>ADB</code> 设置</p>
+<p><code>ADB</code> 全称 <code>Android Debug Bridge</code> 这个工具可以使用指令控制Android设备，debug时必须使用这个工具连接。如果 <code>ADB</code> 路径不同，<code>Android Studio</code> 将无法连接到 <code>Genymotion</code> 创建的模拟器。</p>
+<p>所以这里要选第二项，目标选 <code>Android Studio</code> 的 <code>Android SDK</code> 路径。</p>
+<p>是 <code>SDK</code> 的路径，不是选择 <code>adb.exe</code> 所在的位置。</p>
+<p>顺便提一下不同平台的 <code>SDK</code> 不通用，也就是 <code>Windows</code>、<code>MacOS</code>、<code>Linux</code> 的 <code>Android SDK</code> 彼此不通用。</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227095219114.png" alt="ADB设置"></p>
+<p>Misc中可以选择截图保存的位置，以及清除缓存</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227102643237.png" alt="更多设置"></p>
+<h2 id="新建模拟器"><a href="#新建模拟器" class="headerlink" title="新建模拟器"></a>新建模拟器</h2><p>找一个看着顺眼的镜像点击右边的三个点，选择 <code>Install</code> </p>
+<p>然后会弹出这么一个框框</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227103308499.png" alt="模拟器配置"></p>
+<p>填好以后点击右下角的 <code>INSTALL</code>，如果你不知道怎么填，全默认就好了。</p>
+<p>然后在顶部的 <code>My installed devices</code> 中可以看到创建的模拟器在跑条，如果下载进度太慢的话可以考虑开个代理或者使用下载工具下载镜像。</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227103437796.png" alt="模拟器下载中"></p>
+<h4 id="使用下载工具下载镜像"><a href="#使用下载工具下载镜像" class="headerlink" title="使用下载工具下载镜像"></a>使用下载工具下载镜像</h4><p>如果下载镜像太慢而你又没有梯子，那你可以考虑使用下载工具来下载镜像。</p>
+<p>打开 <code>C:\Users\[你的用户名]\AppData\Local\Genymobile</code> 这个目录</p>
+<p>（如果看不见 <code>AppData</code> 请先在文件夹选项里打开显示隐藏文件夹）</p>
+<p>打开 <code>genymotion.log</code> 这个文件，拉到底，有一个类似</p>
+<p><code>Starting download of &quot;https://dl.genymotion.com/dists/9.0/ova/genymotion_vbox86p_9.0_190715_123003.ova&quot;</code></p>
+<p>这样的日志</p>
+<p>复制双引号里的这个 <code>.ova</code> 结尾的地址，扔进下载工具里。</p>
+<p>下载完之后回到 <code>Genymotion</code> 中，点叉取消创建模拟器。</p>
+<p>然后打开 <code>C:\Users\[你的用户名]\AppData\Local\Genymobile\Genymotion\ova</code> 这个目录，里面有一个下载到一半的镜像，删了它，把你下载好的镜像扔进去。</p>
+<p>再重新创建模拟器，会跳过下载直接开始安装。</p>
+<p>镜像是跟随安卓版本的，同系统版本的镜像只用下载一次，删除模拟器不会删除镜像，下次创建时可直接使用。</p>
+<h4 id="编辑模拟器"><a href="#编辑模拟器" class="headerlink" title="编辑模拟器"></a>编辑模拟器</h4><p>点击创建好的模拟器右边的三个点展开操作菜单</p>
+<p><code>编辑</code> 就是修改创建时填写的模拟器参数，只能在关机状态下操作。只能修改部分参数，</p>
+<p><code>删除</code> 只能在关机下操作，删掉这个模拟器以及本地的这个模拟器的文件，不会删除镜像。</p>
+<p><code>克隆</code> 只能在关机下操作，以模拟器当前的状态创建一个一毛一样的克隆，创建的时候要给克隆体起个名字。</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/image-20191227104702228.png" alt="编辑Genymotion模拟器"></p>
+<h2 id="设置模拟器"><a href="#设置模拟器" class="headerlink" title="设置模拟器"></a>设置模拟器</h2><p>双击开启模拟器，<code>Genymotion</code> 的模拟器是给予 <code>x86</code> 架构的，启动速度非常快。</p>
+<p>启动以后默认的时区是0区，语言是英文，可能会影响的APP正常运行。所以要先调整这两个选项。</p>
+<h4 id="Android-9-设置语言和时区"><a href="#Android-9-设置语言和时区" class="headerlink" title="Android 9 设置语言和时区"></a>Android 9 设置语言和时区</h4><p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/android-9-setting.gif" alt="Android 9设置语言和时区"></p>
+<h4 id="Android-8-设置语言和时区"><a href="#Android-8-设置语言和时区" class="headerlink" title="Android 8 设置语言和时区"></a>Android 8 设置语言和时区</h4><p>注：闪烁是在重新绘制UI界面，属于正常现象</p>
+<p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/android-8-setting.gif" alt="Android 8 设置语言和时区"></p>
+<h4 id="Android-7-1-设置语言和时区"><a href="#Android-7-1-设置语言和时区" class="headerlink" title="Android 7.1 设置语言和时区"></a>Android 7.1 设置语言和时区</h4><p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/android-7.1-setting.gif" alt="Android 7.1 设置语言和时区"></p>
+<h4 id="Android-7-设置语言和时区"><a href="#Android-7-设置语言和时区" class="headerlink" title="Android 7 设置语言和时区"></a>Android 7 设置语言和时区</h4><p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/android-7-setting.gif" alt="Android 7 设置语言和时区"></p>
+<h4 id="Android-6及以下-设置语言和时区"><a href="#Android-6及以下-设置语言和时区" class="headerlink" title="Android 6及以下 设置语言和时区"></a>Android 6及以下 设置语言和时区</h4><p><img src="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/android-6-setting.gif" alt="Android 6 设置语言和时区"></p>
+
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2019/12/25/%E5%9C%A8Deepin%E4%B8%8B%E4%BD%BF%E7%94%A8SSR/">
                 在Deepin下使用SSR
             </a>
@@ -401,71 +565,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/12/25/%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81Fragment%E7%9A%84%E8%87%AA%E5%8A%A8%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8ViewPager/">
-                实现支持Fragment的自动无限滚动ViewPager
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-12-25</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/Android/">Android</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>有一天，UI小姐姐给了我一张酱紫的Banner设计图</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/6/16e3f4492b61ea4d?w=750&h=644&f=png&s=287357" alt><br>之前做Banner都是普通样式的，就是直接铺满的一张图片，所以偷懒直接用了<a href="https://user-gold-cdn.xitu.io/2019/11/6/16e3f4ace1f1e7d1" target="_blank" rel="noopener">youth的banner控件</a><br>然鹅这次的需求没有那么简单了，普通的banner肯定是无法满足的。<br>先看一眼最终效果</p>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="https://user-gold-cdn.xitu.io/2019/11/6/16e40526aa8daf50?w=1080&h=600&f=gif&s=2323892" alt></p>
-        </div>
-        <a href="/2019/12/25/%E5%AE%9E%E7%8E%B0%E6%94%AF%E6%8C%81Fragment%E7%9A%84%E8%87%AA%E5%8A%A8%E6%97%A0%E9%99%90%E6%BB%9A%E5%8A%A8ViewPager/" class="read-more">Read More</a>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                Android开发环境搭建
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-12-24</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/Android开发光速入坑/">Android开发光速入坑</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p><code>Android</code> 已经发布了12个年头了，随着更新迭代现在性能越来越强，外观越来越美观。目前安卓的开发环境已经相当完备，方便快捷的开发工具，各路大佬造好的轮子，让越来越多的人想涉足这个领域。</p>
-<p>如果你跟我一样 <del>想不开</del>，希望我的《Android开发光速入坑》系列能帮助到你。</p>
-        </div>
-        <a href="/2019/12/24/Android%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="read-more">Read More</a>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -508,19 +607,19 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2019/12/27/%E9%BB%91%E7%A7%91%E6%8A%80-%E4%BD%BF%E7%94%A8%E8%BD%AF%E9%93%BE%E6%8E%A5%E8%8A%82%E7%9C%81%E7%B3%BB%E7%BB%9F%E7%9B%98%E7%A9%BA%E9%97%B4/">[黑科技]使用软链接节省系统盘空间</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2019/12/27/%E9%AB%98%E6%80%A7%E8%83%BD%E5%AE%89%E5%8D%93%E6%A8%A1%E6%8B%9F%E5%99%A8-Genymotion%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">高性能安卓模拟器 Genymotion安装和配置</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2019/12/25/%E5%9C%A8Deepin%E4%B8%8B%E4%BD%BF%E7%94%A8SSR/">在Deepin下使用SSR</a>
             </li>
             
             <li>
                 <a class="footer-post" href="/2019/12/25/Fragment%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%B1%BB/">Fragment管理工具类</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3Linux%E4%B8%8Bkvm%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%EF%BC%8CAVD%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E9%97%AE%E9%A2%98/">Linux下kvm无法访问，解决AVD虚拟机无法启</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/25/%E8%A7%A3%E5%86%B3APPT2%E6%8A%A5%E9%94%99%E5%92%8CGradle%E6%8A%A5%E9%94%99/">解决APPT2报错和Gradle报错</a>
             </li>
             
         </ul>
